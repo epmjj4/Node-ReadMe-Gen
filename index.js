@@ -5,17 +5,9 @@ const path = require('path');
 // link to generate markdown.js in utilities folder
 const generateMarkDown = require("./utils/generateMarkDown");
 
-function UserQuestion(question, dataName){
-    this.message = question;
-    this.type = 'input';
-    this.name = dataName;
-}
-
-let columnOut;
 // TODO: Create an array of questions for user input
-function askFirstQuestion(){
-    inquirer.prompt([
-
+ questions = [
+    
         {
             type: 'input',
             message: 'What is the title of your project?',
@@ -29,35 +21,69 @@ function askFirstQuestion(){
     
         },
         {
-            type: 'input',
-            message: 'What is the table of contents for your project',
-            name: 'Table of Contents'
+            type: 'list',
+            message: 'Which license do you want to use?',
+            name: 'license',
+            //most populare licences on Github
+            choices:['MIT','GPLv2','Apache','None']
     
         },
         {
             type: 'input',
-            message: 'What is the table of contents for your project',
-            name: 'TOC'
+            message: 'How to install the dependencies',
+            name: 'installation',
+            // in case user doesn't know, use default to enter the answer
+            default:'npm i'
+    
+        },
+        {
+            type: 'input',
+            message: 'How would you use this repo',
+            name: 'usage'
+    
+        },
+        {
+            type: 'input',
+            message: 'How to contribute to this repo',
+            name: 'contribution'
+    
+        },
+        {
+            type: 'input',
+            message: 'How would you test this repo',
+            name: 'test'
+    
+        },
+        {
+            type: 'input',
+            message: 'What is your github user name?',
+            name: 'github'
+    
+        },
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email'
     
         }
 
 
-    ]).then(response => {
-
-        const {title,description, TOC, } = responses
-
-    }) 
+    ]
 
 
-}
 // TODO: Create a function to write README file
-function writeToFile(fileName, dataName) {}
+function writeToFile(fileName, dataName) {
+    return fs.writeFileSync(path.join(fileName), dataName);
+};
 
 // TODO: Create a function to initialize app
 function init() {
+    // starts prompts for user input
     inquirer.prompt(questions)
+    // storing the answers in teh answers hash
     .then(answers => {
-        console.log('testing')
+        console.log('Creating your README.md file');
+        writeToFile('README.md', generateMarkDown(answers))
     })
 }
 
