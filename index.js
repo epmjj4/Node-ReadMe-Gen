@@ -10,6 +10,8 @@ function UserQuestion(question, dataName){
     this.type = 'input';
     this.name = dataName;
 }
+
+let columnOut;
 // TODO: Create an array of questions for user input
 function askFirstQuestion(){
     inquirer.prompt([
@@ -49,7 +51,7 @@ function askFirstQuestion(){
 
 }
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, dataName) {}
 
 // TODO: Create a function to initialize app
 function init() {
