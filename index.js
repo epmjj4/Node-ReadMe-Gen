@@ -84,7 +84,7 @@ function init() {
     .then(answers => {
         console.log('Creating your README.md file');
         // creates a readme file pushing the answers hash
-        writeToFile('README.md', generateMarkDown(answers))
+        writeToFile('./markdowns/README.md', generateMarkDown(answers))
     })
 }
 
