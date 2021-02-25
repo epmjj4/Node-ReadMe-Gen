@@ -72,8 +72,8 @@ const generateMarkDown = require("./utils/generateMarkDown");
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, dataName) {
-    return fs.writeFileSync(path.join(fileName), dataName);
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(fileName), data);
 };
 
 // TODO: Create a function to initialize app
@@ -83,6 +83,7 @@ function init() {
     // storing the answers in teh answers hash
     .then(answers => {
         console.log('Creating your README.md file');
+        // creates a readme file pushing the answers hash
         writeToFile('README.md', generateMarkDown(answers))
     })
 }
