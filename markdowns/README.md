@@ -15,7 +15,7 @@ https://epmjj4.github.io/Node-ReadMe-Gen/
 
 # Node-Note-Generator-screenshot
 
-![alt text]("Note-Generator")
+![alt text](https://raw.githubusercontent.com/epmjj4/Node-ReadMe-Gen/main/assets/node-readME-screenshot.PNG "Note-Generator")
 
 # Credits
 
