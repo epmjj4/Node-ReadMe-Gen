@@ -30,7 +30,7 @@ const generateMarkDown = require("./utils/generateMarkDown");
         },
         {
             type: 'input',
-            message: 'How to install the dependencies',
+            message: 'How would you like to install the dependencies?',
             name: 'installation',
             // in case user doesn't know, use default to enter the answer
             default:'npm i'
@@ -38,19 +38,19 @@ const generateMarkDown = require("./utils/generateMarkDown");
         },
         {
             type: 'input',
-            message: 'How would you use this repo',
+            message: 'How would you use this repo?',
             name: 'usage'
     
         },
         {
             type: 'input',
-            message: 'How to contribute to this repo',
+            message: 'How woulld you contribute to this repo?',
             name: 'contribution'
     
         },
         {
             type: 'input',
-            message: 'How would you test this repo',
+            message: 'How would you test this repo?',
             name: 'test'
     
         },
@@ -68,7 +68,7 @@ const generateMarkDown = require("./utils/generateMarkDown");
         }
 
 
-    ]
+    ];
 
 
 // TODO: Create a function to write README file
@@ -84,7 +84,7 @@ function init() {
     .then(answers => {
         console.log('Creating your README.md file');
         // creates a readme file pushing the answers hash
-        writeToFile('./markdowns/README.md', generateMarkDown(answers))
+        writeToFile('./markdowns/README-Gen.md', generateMarkDown(answers))
     })
 }
 

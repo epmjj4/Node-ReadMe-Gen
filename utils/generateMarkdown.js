@@ -81,7 +81,7 @@ Check my other repositories here:
 [${data.github}] (https://github.com/${data.github})
 
 `;
-}
+};
 
 
 module.exports = generateMarkdown;
